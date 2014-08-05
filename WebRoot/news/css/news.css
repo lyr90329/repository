@@ -1,0 +1,26 @@
+.page_area{
+	margin:10px 25px 10px 25px;
+	border-width:0px;
+	background-color:#EEEEEE;
+}
+
+.list_title{
+	margin:15px 0px 5px 25px;
+}
+
+.list_time{
+	margin:15px 25px 5px 0px;
+}
+
+.news_info{
+	margin:10px 25px 10px 25px;
+}
+
+.news_content{
+	line-height:20px;
+	margin:10px 25px 10px 25px;
+}
+
+.news_content p{
+	text-indent:2em;
+}

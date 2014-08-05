@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Search</title>
+		<script type="text/javascript" src="js/repository.js"></script>
+		<style type="text/css">
+#search_box {
+	position: absolute;
+	top: 170px;
+	right: 30px;
+}
+
+#search_box #search_text {
+}
+
+#search_box .search_button {
+}
+
+#search_box a{
+	color: #000000;
+	text-decoration: underline;
+}
+
+#search_box a:hover{
+	color: #999999;
+}
+	</style>
+	</head>
+	<body>
+		<form action="KeywordsSearch" method="Post" id="search_box" onsubmit="return onSubmit(this,'keys')">
+			<input id="search_text" type="text" name="keys" size="30px"/>
+			<input class="search_button" type="submit" value="Search" />
+			<br />
+			<a>Advanced</a>
+		</form>
+	</body>
+</html>

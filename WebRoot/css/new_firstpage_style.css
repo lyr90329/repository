@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0
+}
+img {
+	border:0
+}
+ul {
+	list-style:none
+}
+a {
+	color:#666;
+	text-decoration:none
+}
+a:hover {
+	color:#F60 !important
+}
+body {
+	color:#666;
+	font-family:'Microsoft YaHei',Arial,Helvetica,sans-serif;
+	font-size:15px;
+}
+#bigbox {
+	width:1198px;
+	margin:0 auto;
+	border:1px #CBCBCB solid;
+	overflow:auto;
+}
+#topnav {
+	height:49px;
+	background:#2D3134;
+	overflow:hidden
+}
+#topnav li {
+	float:left;
+	line-height:49px;
+	padding:0 9px
+}
+#topnav li a{
+    color:#FFF
+}
+#topnav li.logo {
+	font-size:25px;
+	font-weight:500;
+	padding-right:26px
+}
+#topnav li.blank1 {
+	width:40px
+}
+#topnav li.blank2 {
+	width:265px;
+        text-align: center
+}
+#topnav li.small {
+	padding-top:3px;
+    font-size:14px;
+	font-weight:100
+}
+#topic {
+	height:271px;
+	clear:both;
+	background:url(../images/sv_07.jpg) no-repeat
+}
+#stepbox {
+	height:378px;
+	background:url(../images/sv_08.jpg) no-repeat
+}
+#stepbox li {
+	float:left;
+	width:399px;
+	text-align:center;
+	padding-top:317px
+}
+#stepbox li.a1 img {
+	margin-left:-25px;
+}
+#stepbox li.a2 img {
+	margin-right:-12px;
+}
+#stepbox li.a3 img {
+	margin-right:-12px;
+}
+#dwarea {
+	height:220px;
+	background:url(../images/sv_09.jpg) no-repeat
+}
+#dwarea p {
+	padding:175px 0 0 170px
+}
+#dwarea a {
+	color:#0085C0;
+	font-size:17px;
+	margin-right:45px
+}
+#newsbox {
+	width:1056px;
+	height:85px;
+	margin:5px auto 35px;
+	font-size:16px;
+	line-height:24px;
+	border:0 #CBCBCB solid;
+	border-width:1px 0;
+	padding-top:15px
+}
+#newsbox dt {
+	float:left;
+	width:80px;
+	height:60px;
+	padding-left:30px
+}
+#newsbox dd {
+	float:left;
+	width:900px
+}
+#newsbox dd span {
+	margin-right:20px
+}
+#infobox {
+	width:1056px;
+	height:138px;
+	margin:0 auto;
+	border-bottom:1px #CBCBCB solid;
+	padding-bottom:35px
+}
+#infobox li {
+	float:left;
+	height:80px;
+	text-align:center;
+	padding-top:58px;
+}
+#infobox li.a1 {
+	width:222px;
+	background:url(../images/sv_12.jpg) 60px 19px no-repeat;
+	padding-left:101px;
+}
+#infobox li.a2 {
+	width:298px;
+	border:0 #CBCBCB solid;
+	border-width:0 1px;
+	background:url(../images/sv_14.jpg) 100px 19px no-repeat;
+	padding-left:101px;
+}
+#infobox li.a3 {
+	width:230px;
+	background:url(../images/sv_16.jpg) 50px 19px no-repeat;
+	padding-top:48px;
+	padding-left:91px;
+}
+#infobox li a {
+	color:#0085C0;
+	font-size:16px;
+}
+#footer {
+	text-align:center;
+	line-height:24px;
+	margin-top:37px;
+	border-top:1px #CBCBCB solid;
+	background:#EEE;
+	padding:15px 0 10px;
+	clear:both
+}

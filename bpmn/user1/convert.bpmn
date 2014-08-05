@@ -1,0 +1,28 @@
+<bpmn:BusinessProcessDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://sdp.act.org.cn/bpmn">
+  <pools id="2630" mainPool="true" name="pool">
+    <lanes id="2631" name="lane">
+      <graphicalElements id="2635" xsi:type="bpmn:EndEvent" name="end"/>
+      <graphicalElements id="2632" xsi:type="bpmn:StartEvent" triggers="" name="start"/>
+      <graphicalElements id="2633" xsi:type="bpmn:ServiceTask" webService="2643" name="convertToUSD" inMessageRef="2649" outMessageRef="2651"/>
+      <graphicalElements id="2634" xsi:type="bpmn:ServiceTask" webService="2645" name="USDToISK" inMessageRef="2653" outMessageRef="2656"/>
+    </lanes>
+    <sequenceFlows id="2639" sourceRef="2632" targetRef="2633" name="" conditionExpression=""/>
+    <sequenceFlows id="2641" sourceRef="2634" targetRef="2635" name="" conditionExpression=""/>
+    <sequenceFlows id="2640" sourceRef="2633" targetRef="2634" name="" conditionExpression=""/>
+  </pools>
+  <invisibleElement>
+    <supportingElements xsi:type="bpmn:WebService" id="2643" name="MoneyExchange" operation="TranformToUSD" url="http://192.168.3.201:8080/axis2/services/MoneyExchange" targetNamespace="http://isk.bank"/>
+    <supportingElements xsi:type="bpmn:WebService" id="2645" name="MoneyExchange" operation="USDExchange" url="http://192.168.3.201:8080/axis2/services/MoneyExchange" targetNamespace="http://isk.bank"/>
+    <supportingElements xsi:type="bpmn:Property" id="2646" name="ca" type="String"/>
+    <supportingElements xsi:type="bpmn:InputSet" id="2647" name="" propertyInputs="2646 2648 2652 "/>
+    <supportingElements xsi:type="bpmn:Property" id="2648" name="mount" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="2649" name="ToUSDinmsg" properties="2646 2648 "/>
+    <supportingElements xsi:type="bpmn:Property" id="2650" name="midvalue" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="2651" name="ToUSDoutmsg" properties="2650 "/>
+    <supportingElements xsi:type="bpmn:Property" id="2652" name="cb" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="2653" name="USDToinmsg" properties="2652 2650 "/>
+    <supportingElements xsi:type="bpmn:Property" id="2654" name="result" type="String"/>
+    <supportingElements xsi:type="bpmn:OutputSet" id="2655" name="" propertyOutputs="2654 "/>
+    <supportingElements xsi:type="bpmn:Message" id="2656" name="USDTooutmsg" properties="2654 "/>
+  </invisibleElement>
+</bpmn:BusinessProcessDiagram>

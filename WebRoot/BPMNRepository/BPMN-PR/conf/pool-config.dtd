@@ -1,0 +1,190 @@
+<!--
+This is the XML DTD for the SmartPool 1.0  configuration deployment descriptor.
+Some day will write an XSD for the same.
+-->
+	
+<!--
+The following conventions apply to all Smart pool configuration elements unless indicated otherwise.
+
+- In elements that contain PCDATA, leading and trailing whitespace
+  in the data may be ignored.
+
+- In elements whose value is an "enumerated type", the value is
+  case sensitive.
+
+- In elements that specify a pathname to a file within the same
+  JAR file, relative filenames (i.e., those not starting with "/")
+  are considered relative to the root of the JAR file's namespace.
+  Absolute filenames (i.e. those starting with "/") also specify
+  names in the root of the JAR file's namespace.  In general, relative
+  names are preferred.  The exception is .war files where absolute
+  names are preferred for consistency with the servlet API.
+-->
+
+<!--
+The smart-pool-config element is the root of the configuration deployment descriptor. 
+-->
+
+<!ELEMENT smart-pool-config (data-source+, log-file?)>
+
+<!-- 
+	There should be atleast one entry of data-source. There can be more than 
+	one. Each entry for data-source represents a single pool.
+-->
+<!ELEMENT data-source (description?)>
+<!ATTLIST data-source
+
+connection-driver CDATA #REQUIRED
+connect-string CDATA #REQUIRED
+username CDATA #REQUIRED
+password CDATA #REQUIRED
+min-connections CDATA #REQUIRED
+increment-by CDATA #REQUIRED
+validator-query CDATA #IMPLIED	
+default-pool (true|false) #IMPLIED
+detect-leaks (true|false) #IMPLIED
+leak-time-out CDATA #IMPLIED
+poll-thread-time CDATA #IMPLIED
+auto-close (true|false) #IMPLIED
+allow-anonymous-connections (true|false) #IMPLIED
+max-free-connections-for-release CDATA #IMPLIED
+default-listener CDATA #IMPLIED
+connection-loader-class CDATA #IMPLIED 
+connection-wait-time-out CDATA #IMPLIED
+max-connection-idle-time CDATA #IMPLIED
+
+>				
+
+<!-- 
+	Explanation of above attributes 
+
+	* The driver to be used 
+
+		connection-driver CDATA #REQUIRED
+
+	* The connection string	
+
+		connect-string CDATA #REQUIRED
+
+	* Username to connect to database
+
+		username CDATA #REQUIRED
+
+	* Password to connect to the database
+
+		password CDATA #REQUIRED
+
+	* The number of connections the pool will load on start-up
+		
+		min-connections CDATA #REQUIRED
+
+
+	* Block size in which the connections will be drawn.
+
+		increment-by CDATA #REQUIRED
+
+	* Validator Query is a SQL query that will be executed on the connection
+	  before the connection is leased out to the consumer. On succesfull 
+	  execution of the query, the connection is considered to be valid, else 
+	  the connection is replaced with a fresh connection. Three consecutive 
+	  invalid connections result in an exception thrown to the consumer.
+	  To skip validation of the connection before giving it to the consumer,
+	  skip this attribute in the configuration file. 
+	
+		validator-query CDATA #IMPLIED	
+
+	* When true indicates default pool and connection 
+	  can be directly drawn from the pool without explicitly specifing the name
+	  of the pool. 
+		e.g. 
+		 1) PoolManager.getConnection();
+		 2) SmartPoolFactory.getConnection();
+ 
+	  There can be only one default pool.
+		
+		default-pool (true|false) #DEFAULT false
+
+	* When true leak detection will be enabled, and registered
+	  listeners will be notified when leaks are detected.
+	
+		detect-leaks (true|false) #DEFAULT false
+
+	* Time out in seconds after which registered listeners will be notified.
+	  This attribute is optional when detect-leaks="false"
+	
+		leak-time-out CDATA #IMPLIED
+
+	* Time interval in seconds after which the pool will be polled for 
+	  connection leaks and releasing excessive free connections
+
+	  This attribute is optional if detect-leaks="false" and
+	  max-free-connections-for-release = -1
+	
+		poll-thread-time CDATA #IMPLIED
+
+	* When true this will close all the associated Statements, 
+	  PreparedStatements, CallableStatements when the connection is 
+	  returned back to the pool.
+	
+		auto-close (true|false) #DEFAULT false
+
+	* When false SmartPool will not allow anonymous connection from the pool.
+	  Basically the following two methods will throw an exception.
+		1) PoolManager.getConnection();
+		2) SmartPoolFactory.getConnection();
+	  It becomes imperative to provide an owner name while drawing the 
+	  connetion from the pool.
+	
+		allow-anonymous-connections (true|false) #DEFAULT true
+
+	* max-free-connections-for-release defines the maximum number of free
+	  connection that is allowed in the pool after which the connection will
+	  be released.The blocks size in which the connections are released is same
+	  as increment-by
+
+	  When ommited or given a value of -1, the connection pool will be ever
+	  growing util it reaches max-connections , the pool will not shrink 
+	  when there are too many free connections
+		
+		max-free-connections-for-release CDATA #DEFAULT -1
+
+	* Default listener specifies the complete qualified classname 
+	  that implements the ConnectionLeakListener interface. This class
+	  will receive the connection leak notification.
+
+		default-listener CDATA #IMPLIED
+
+	* Connection loader attribute is used when you want to wrap your existing
+	  connection pool with smart pool. See user documentation for more details.
+
+		connection-loader-class CDATA #IMPLIED 
+
+	* This is the maximun time for which a thread can be blocked for a 
+	  connection in SmartPoolFactory.getConnection() method. If the time
+	  exceeds more than the specified time, a ConnectionPoolException is 
+	  thrown. Default value is 60 seconds.
+	
+	  	connection-wait-time-out CDATA #IMPLIED
+
+    * max-connection-idle-time="100" specifies the maximum amount of time
+	  for which a consumer can hold on to a connection, without using it.	 
+          hence if the poll thread finds any connections that have not been 
+          used for more than 100 seconds, it will take the connection back, 
+          and any attempt to use the connection afterwards will result 
+          in StaleConnectionException. 
+
+
+	
+-->
+
+<!-- A short description. -->
+<!ELEMENT description (#PCDATA)>
+
+<!-- 
+	Absolute log file name, SmartPool will log the debug messages to this file.
+	This is an optional element. SmartPool will not log anything if this
+	element is missing or if for some reasons it cannot access the specified
+	file
+-->	 
+<!ELEMENT log-file (#PCDATA)>
+

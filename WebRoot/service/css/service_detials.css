@@ -1,0 +1,98 @@
+.inner_menu{
+	margin-left:30px;
+	margin-top:20px;
+	margin-bottom:5px;
+}
+.menu_botton,.menu_botton_last{
+	background-color:#EEE;
+	margin-left:-3px;
+	border-width:1px;
+	border-right-width:0px;
+	border-style:solid;
+	border-color:#CCC;
+	padding:5px 10px 5px 10px;
+}
+#current a{
+	color:#FFF;
+}
+.menu_botton_last{
+	border-right-width:1px;
+}
+#current{
+	background-color:#4152f4;
+	border-color:#4152f4;
+}
+
+.lines{
+	background-color:#eee;
+	padding:10px;
+}
+.lines div{
+	padding-top:5px;
+	padding-bottom:3px;
+	WORD-WRAP:break-word;
+}
+.small_title{
+	font-weight: bolder;
+}
+
+.inner_title{
+	padding:20px 10px 5px 10px;
+	color:#4c4c4c;
+	background-color:#eee;
+}
+
+.gap_line{
+	background-color:#eee;
+	border-width:0px;
+	border-bottom-width:1px;
+	border-color:#ccc;
+	border-style:solid;
+}
+
+.add_button{
+	margin-left:303px;
+}
+
+.additionalInfo,.user_tags,.additionalInfoEdit,.user_tags_add{
+	background-color:#eee;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:5px;
+}
+.user_tags{
+	padding-bottom:20px;
+}
+
+.comments{
+	padding:5px;
+	border-width:0px;
+	border-bottom-width:1px;
+	border-color:#ccc;
+	border-style:dashed;
+}
+.comments .user{
+	color:blue;
+}
+
+.appraise{
+	padding:3px 5px 3px 5px;
+}
+
+.appraise_hover{
+	padding:3px 5px 3px 5px;
+	background-color:#ddd;
+}
+
+.comments_page{
+	margin-left:10px;
+	margin-right:10px;
+	background-color:#eee;
+}
+.comments,.add_comments{
+	margin:10px;
+}
+
+form{
+	margin:0;
+}

@@ -1,0 +1,165 @@
+<bpmn:BusinessProcessDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://sdp.act.org.cn/bpmn">
+  <pools id="1" mainPool="true" name="pool">
+    <lanes id="3" name="lane">
+      <graphicalElements id="61" xsi:type="bpmn:EndEvent" name="end"/>
+      <graphicalElements id="45" xsi:type="bpmn:SendTask" name="QVResult" messageRef="5154"/>
+      <graphicalElements id="43" xsi:type="bpmn:ReceiveTask" name="QVReceiver" messageRefs="5152 "/>
+      <graphicalElements id="4" xsi:type="bpmn:StartEvent" triggers="5080 " name="start"/>
+      <graphicalElements id="46" xsi:type="bpmn:ReceiveTask" name="QVDRReceiver" messageRefs="5487 "/>
+      <graphicalElements id="92" xsi:type="bpmn:SendTask" name="QVDResult" messageRef="5280"/>
+      <graphicalElements id="57" xsi:type="bpmn:ReceiveTask" name="SOReceiver" messageRefs="5488 "/>
+      <graphicalElements id="60" xsi:type="bpmn:SendTask" name="payResult" messageRef="5489"/>
+      <graphicalElements id="42" xsi:type="bpmn:SendTask" name="returnPush" messageRef="5150"/>
+      <graphicalElements id="41" xsi:type="bpmn:ServiceTask" webService="5081" name="pushViolate" inMessageRef="5082" outMessageRef="5123"/>
+      <graphicalElements id="48" xsi:type="bpmn:ServiceTask" webService="5779" name="pushMap" inMessageRef="5781" outMessageRef="5780"/>
+      <graphicalElements id="47" xsi:type="bpmn:ServiceTask" webService="5127" name="queryVD" inMessageRef="5128" outMessageRef="5129"/>
+      <graphicalElements id="44" xsi:type="bpmn:ServiceTask" webService="5124" name="queryViolate" inMessageRef="5125" outMessageRef="5126"/>
+      <graphicalElements id="96" xsi:type="bpmn:ServiceTask" webService="5130" name="pushPayMsg" inMessageRef="5131" outMessageRef="5132"/>
+      <graphicalElements id="59" xsi:type="bpmn:ServiceTask" webService="5133" name="payOrder" inMessageRef="5134" outMessageRef="5135"/>
+    </lanes>
+    <sequenceFlows id="111" sourceRef="45" targetRef="46" name="" conditionExpression=""/>
+    <sequenceFlows id="114" sourceRef="92" targetRef="57" name="" conditionExpression=""/>
+    <sequenceFlows id="102" sourceRef="60" targetRef="61" name="" conditionExpression=""/>
+    <sequenceFlows id="108" sourceRef="42" targetRef="43" name="" conditionExpression=""/>
+    <sequenceFlows id="68" sourceRef="41" targetRef="42" name="" conditionExpression=""/>
+    <sequenceFlows id="66" sourceRef="4" targetRef="41" name="" conditionExpression=""/>
+    <sequenceFlows id="93" sourceRef="48" targetRef="92" name="" conditionExpression=""/>
+    <sequenceFlows id="88" sourceRef="47" targetRef="48" name="" conditionExpression=""/>
+    <sequenceFlows id="82" sourceRef="46" targetRef="47" name="" conditionExpression=""/>
+    <sequenceFlows id="81" sourceRef="44" targetRef="45" name="" conditionExpression=""/>
+    <sequenceFlows id="76" sourceRef="43" targetRef="44" name="" conditionExpression=""/>
+    <sequenceFlows id="97" sourceRef="57" targetRef="96" name="" conditionExpression=""/>
+    <sequenceFlows id="101" sourceRef="59" targetRef="60" name="" conditionExpression=""/>
+    <sequenceFlows id="99" sourceRef="96" targetRef="59" name="" conditionExpression=""/>
+  </pools>
+  <pools id="2" mainPool="true" name="pool">
+    <lanes id="21" name="lane">
+      <graphicalElements id="27" xsi:type="bpmn:StartEvent" triggers="" name="start"/>
+      <graphicalElements id="38" xsi:type="bpmn:ReceiveTask" name="QVRReceiver" messageRefs="5154 "/>
+      <graphicalElements id="37" xsi:type="bpmn:SendTask" name="QVRequest" messageRef="5152"/>
+      <graphicalElements id="36" xsi:type="bpmn:ReceiveTask" name="pushResult" messageRefs="5150 "/>
+      <graphicalElements id="118" xsi:type="bpmn:SendTask" name="VPRequest" messageRef="5074"/>
+      <graphicalElements id="40" xsi:type="bpmn:SendTask" name="QVDRequest" messageRef="5487"/>
+      <graphicalElements id="50" xsi:type="bpmn:ReceiveTask" name="QVDRsReceiver" messageRefs="5280 "/>
+      <graphicalElements id="52" xsi:type="bpmn:SendTask" name="SORequest" messageRef="5488"/>
+      <graphicalElements id="53" xsi:type="bpmn:ReceiveTask" name="payRRecerver" messageRefs="5490 "/>
+      <graphicalElements id="56" xsi:type="bpmn:EndEvent" name="end"/>
+      <graphicalElements id="25" xsi:type="bpmn:DataBasedExclusiveGateway"/>
+      <graphicalElements id="33" xsi:type="bpmn:DataBasedExclusiveGateway"/>
+      <graphicalElements id="31" xsi:type="bpmn:DataBasedExclusiveGateway" gates="5495 5496 "/>
+      <graphicalElements id="55" xsi:type="bpmn:DataBasedExclusiveGateway" gates="5492 5493 "/>
+      <graphicalElements id="29" xsi:type="bpmn:ServiceTask" webService="4865" name="login" inMessageRef="5077" outMessageRef="5637"/>
+      <graphicalElements id="35" xsi:type="bpmn:ServiceTask" webService="5149" name="clickAndPush" inMessageRef="6212" outMessageRef="6214"/>
+      <graphicalElements id="23" xsi:type="bpmn:ServiceTask" webService="5146" name="clickAndQ" inMessageRef="5147" outMessageRef="5148"/>
+      <graphicalElements id="39" xsi:type="bpmn:ServiceTask" webService="5143" name="clickViewViolate" inMessageRef="5144" outMessageRef="5145"/>
+      <graphicalElements id="51" xsi:type="bpmn:ServiceTask" webService="5140" name="clickAndSO" inMessageRef="5141" outMessageRef="5142"/>
+      <graphicalElements id="54" xsi:type="bpmn:ServiceTask" webService="5136" name="clickAndCP" inMessageRef="5137" outMessageRef="5139"/>
+    </lanes>
+    <sequenceFlows id="110" sourceRef="37" targetRef="38" name="" conditionExpression=""/>
+    <sequenceFlows id="121" sourceRef="118" targetRef="36" name="" conditionExpression=""/>
+    <sequenceFlows id="112" sourceRef="40" targetRef="50" name="" conditionExpression=""/>
+    <sequenceFlows id="113" sourceRef="52" targetRef="53" name="" conditionExpression=""/>
+    <sequenceFlows id="73" sourceRef="33" targetRef="37" name="" conditionExpression=""/>
+    <sequenceFlows id="65" sourceRef="31" targetRef="25" name="flow2" conditionExpression="5639"/>
+    <sequenceFlows id="119" sourceRef="31" targetRef="118" name="flow1" conditionExpression="5638"/>
+    <sequenceFlows id="106" sourceRef="55" targetRef="56" name="flow4" conditionExpression="5498"/>
+    <sequenceFlows id="107" sourceRef="55" targetRef="25" name="flow3" conditionExpression="5497"/>
+    <sequenceFlows id="63" sourceRef="29" targetRef="31" name="" conditionExpression=""/>
+    <sequenceFlows id="62" sourceRef="27" targetRef="29" name="" conditionExpression=""/>
+    <sequenceFlows id="72" sourceRef="35" targetRef="33" name="" conditionExpression=""/>
+    <sequenceFlows id="71" sourceRef="36" targetRef="35" name="" conditionExpression=""/>
+    <sequenceFlows id="75" sourceRef="23" targetRef="33" name="" conditionExpression=""/>
+    <sequenceFlows id="74" sourceRef="25" targetRef="23" name="" conditionExpression=""/>
+    <sequenceFlows id="79" sourceRef="39" targetRef="40" name="" conditionExpression=""/>
+    <sequenceFlows id="78" sourceRef="38" targetRef="39" name="" conditionExpression=""/>
+    <sequenceFlows id="95" sourceRef="51" targetRef="52" name="" conditionExpression=""/>
+    <sequenceFlows id="91" sourceRef="50" targetRef="51" name="" conditionExpression=""/>
+    <sequenceFlows id="105" sourceRef="54" targetRef="55" name="" conditionExpression=""/>
+    <sequenceFlows id="104" sourceRef="53" targetRef="54" name="" conditionExpression=""/>
+  </pools>
+  <messageFlows id="80" sourceRef="45" targetRef="38"/>
+  <messageFlows id="77" sourceRef="37" targetRef="43"/>
+  <messageFlows id="120" sourceRef="118" targetRef="4"/>
+  <messageFlows id="83" sourceRef="40" targetRef="46"/>
+  <messageFlows id="94" sourceRef="92" targetRef="50"/>
+  <messageFlows id="100" sourceRef="52" targetRef="57"/>
+  <messageFlows id="103" sourceRef="60" targetRef="53"/>
+  <messageFlows id="70" sourceRef="42" targetRef="36"/>
+  <invisibleElement>
+    <supportingElements xsi:type="bpmn:WebService" id="4865" name="jtcx_action" operation="login" url="http://115.28.42.76:5000/axis2/services/jtcx_action.jtcx_actionHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5074" name="VPRequest" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Property" id="5075" name="userName" type="String"/>
+    <supportingElements xsi:type="bpmn:InputSet" id="5076" name="" propertyInputs="5075 6066 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5077" name="loginInMsg" properties="5075 6066 "/>
+    <supportingElements xsi:type="bpmn:MessageEventDetail" id="5080" name="VPRequest" messageRef="5079"/>
+    <supportingElements xsi:type="bpmn:Message" id="5079" name="VPRequest" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5081" name="jtcx_additional" operation="pushViolateMsg" url="http://115.28.42.76:5000/axis2/services/jtcx_additional.jtcx_additionalHttpSoap12Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5082" name="pushViolateInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5123" name="pushViolateOutMsg" properties="6211 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5124" name="jtcx_query" operation="queryViolate" url="http://115.28.42.76:8090/axis2/services/jtcx_query.jtcx_queryHttpSoap12Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5125" name="queryViolateInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5126" name="queryViolateOutMsg" properties="6216 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5127" name="jtcx_query_detail" operation="queryViolateDetail" url="http://115.28.42.76:8090/axis2/services/jtcx_query_detail.jtcx_query_detailHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5128" name="queryVDInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5129" name="queryVDOutMsg" properties="6218 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5130" name="jtcx_pay" operation="pushPayMsg" url="http://115.28.42.76:8090/axis2/services/jtcx_pay.jtcx_payHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5131" name="pushPayMsgInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5132" name="pushPayMsgOutMsg" properties="6221 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5133" name="jtcx_pay" operation="payOrder" url="http://115.28.42.76:8090/axis2/services/jtcx_pay.jtcx_payHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5134" name="payOrderInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5135" name="payOrderOutMsg" properties="6222 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5136" name="jtcx_action" operation="clickAndContinuePay" url="http://115.28.42.76:5000/axis2/services/jtcx_action.jtcx_actionHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5137" name="clickAndContinuePayInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Property" id="5138" name="isContinuePay" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="5139" name="clickAndContinuePayOutMsg" properties="5138 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5140" name="jtcx_action" operation="clickAndSubmitOrder" url="http://115.28.42.76:5000/axis2/services/jtcx_action.jtcx_actionHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5141" name="clickAndSubmitOrderInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5142" name="clickAndSubmitOrderOutMsg" properties="6220 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5143" name="jtcx_action" operation="clickViewViolate" url="http://115.28.42.76:5000/axis2/services/jtcx_action.jtcx_actionHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5144" name="clickViewViolateInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5145" name="clickViewViolateOutMsg" properties="6217 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5146" name="jtcx_action" operation="clickAndQuery" url="http://115.28.42.76:5000/axis2/services/jtcx_action.jtcx_actionHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5147" name="clickAndQueryInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5148" name="clickAndQueryOutMsg" properties="6215 "/>
+    <supportingElements xsi:type="bpmn:WebService" id="5149" name="jtcx_action" operation="clickAndPush" url="http://115.28.42.76:5000/axis2/services/jtcx_action.jtcx_actionHttpSoap11Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5150" name="returnPushMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5151" name="pushResultMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5152" name="QVRequestMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5153" name="QVReceiverMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5154" name="QVResultMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5155" name="QVRReceiver" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5280" name="QVDResultMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5487" name="QVDRequestMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5488" name="SORequestMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5489" name="payResultMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5490" name="payResultMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Gate" id="5492" name="gate3" outgoingSequenceFlow="107"/>
+    <supportingElements xsi:type="bpmn:Gate" id="5493" name="gate4" outgoingSequenceFlow="106"/>
+    <supportingElements xsi:type="bpmn:Gate" id="5495" name="gate1" outgoingSequenceFlow="119"/>
+    <supportingElements xsi:type="bpmn:Gate" id="5496" name="gate2" outgoingSequenceFlow="65"/>
+    <supportingElements xsi:type="bpmn:Expression" id="5497" expressionBody="isContinuePay==&quot;true&quot;" name="trueExp"/>
+    <supportingElements xsi:type="bpmn:Expression" id="5498" expressionBody="isContinuePay==&quot;false&quot;" name="falseExp"/>
+    <supportingElements xsi:type="bpmn:Property" id="5636" name="isPushMsg" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="5637" name="loginOutMsg" properties="5636 "/>
+    <supportingElements xsi:type="bpmn:Expression" id="5638" expressionBody="isPushMsg==&quot;true&quot;" name="trueExp"/>
+    <supportingElements xsi:type="bpmn:Expression" id="5639" expressionBody="isPushMsg==&quot;false&quot;" name="falseExp"/>
+    <supportingElements xsi:type="bpmn:WebService" id="5779" name="jtcx_additional" operation="hasMapService" url="http://115.28.42.76:5000/axis2/services/jtcx_additional.jtcx_additionalHttpSoap12Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Message" id="5780" name="pushMapOutMsg" properties="6219 "/>
+    <supportingElements xsi:type="bpmn:Message" id="5781" name="pushMapInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Property" id="6066" name="password" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6210" name="pushViolateSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6211" name="isPushViolateSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="6212" name="clickAndPushInMsg" properties="5075 "/>
+    <supportingElements xsi:type="bpmn:Property" id="6213" name="isclickAndPushSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="6214" name="clickAndPushOutMsg" properties="6213 "/>
+    <supportingElements xsi:type="bpmn:Property" id="6215" name="isclickAndQSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6216" name="isqueryViolateSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6217" name="isclickViewViolateSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6218" name="isqueryVDSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6219" name="ispushMapSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6220" name="isclickAndSOSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6221" name="ispushPayMsgSuc" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="6222" name="paySuccessfully" type="String"/>
+    <supportingElements xsi:type="bpmn:OutputSet" id="6379" name="" propertyOutputs="6222 "/>
+  </invisibleElement>
+</bpmn:BusinessProcessDiagram>

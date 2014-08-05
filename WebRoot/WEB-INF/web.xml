@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/user/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/testuser/*</url-pattern>
+	</filter-mapping>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:applicationContext-*.xml</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>WebAppEngine</servlet-name>
+		<servlet-class>org.cn.act.sdp.app.WebAppEngine</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WebAppEngine</servlet-name>
+		<url-pattern>/ServiceCloud/appengine</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ResponseTimeJSONServelet</servlet-name>
+		<servlet-class>repository.servlets.ResponseTimeJSONServelet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetSoapServlet</servlet-name>
+		<servlet-class>repository.servlets.GetSoapServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FeedbackRaderJSONServelet</servlet-name>
+		<servlet-class>repository.servlets.FeedbackRaderJSONServelet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SurveyServlet</servlet-name>
+		<servlet-class>repository.servlets.FeedbackServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuConf</servlet-name>
+		<servlet-class>servlet.MenuConf</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MenuConf</servlet-name>
+		<url-pattern>/ServiceCloud/menu_conf</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ServiceOperate</servlet-name>
+		<servlet-class>servlet.ServiceOperate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServiceOperate</servlet-name>
+		<url-pattern>/ServiceCloud/ServiceOperate</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BpmnOperate</servlet-name>
+		<servlet-class>servlet.BpmnOperate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BpmnOperate</servlet-name>
+		<url-pattern>/ServiceCloud/BpmnOperate</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UploadBpmnOperate</servlet-name>
+		<servlet-class>servlet.UploadBpmnOperate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadBpmnOperate</servlet-name>
+		<url-pattern>/ServiceCloud/UploadBpmnOperate</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AppOperate</servlet-name>
+		<servlet-class>servlet.AppOperate</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetJobId</servlet-name>
+		<servlet-class>servlet.GetJobId</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetUpJobId</servlet-name>
+		<servlet-class>servlet.GetUpJobId</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SubscribedServices</servlet-name>
+		<servlet-class>servlet.SubscribedServices</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SubscribedApplications</servlet-name>
+		<servlet-class>servlet.SubscribedApplications</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServiceToContainer</servlet-name>
+		<servlet-class>servlet.ServiceToContainer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AllApplications</servlet-name>
+		<servlet-class>servlet.AllApplications</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SubscribeApplication</servlet-name>
+		<servlet-class>servlet.SubscribeApplication</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AppOperate</servlet-name>
+		<url-pattern>/ServiceCloud/AppOperate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetJobId</servlet-name>
+		<url-pattern>/ServiceCloud/GetJobId</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetUpJobId</servlet-name>
+		<url-pattern>/ServiceCloud/GetUpJobId</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SubscribedServices</servlet-name>
+		<url-pattern>/ServiceCloud/SubscribedServices</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SubscribedApplications</servlet-name>
+		<url-pattern>/ServiceCloud/SubscribedApplications</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServiceToContainer</servlet-name>
+		<url-pattern>/ServiceCloud/ServiceToContainer</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AllApplications</servlet-name>
+		<url-pattern>/ServiceCloud/AllApplications</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SubscribeApplication</servlet-name>
+		<url-pattern>/ServiceCloud/SubscribeApplication</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResponseTimeJSONServelet</servlet-name>
+		<url-pattern>/ResponseTimeJSONServelet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetSoapServlet</servlet-name>
+		<url-pattern>/GetSoapServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FeedbackRaderJSONServelet</servlet-name>
+		<url-pattern>/FeedbackRaderJSONServelet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SurveyServlet</servlet-name>
+		<url-pattern>/survey/submitSurvey</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>NewModel</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.NewModel</servlet-class>
+	</servlet>
+	<servlet>
+		<description>Start a new domain</description>
+		<display-name>Start New Domain</display-name>
+		<servlet-name>NewDomain</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.NewDomain</servlet-class>
+	</servlet>
+	<servlet>
+		<description>Add a new Title</description>
+		<display-name>Add a new Title</display-name>
+		<servlet-name>NewTitle</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.NewTitle</servlet-class>
+	</servlet>
+	<servlet>
+		<description>get model file</description>
+		<display-name>get model file</display-name>
+		<servlet-name>GetModel</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.GetModel</servlet-class>
+	</servlet>
+	<servlet>
+		<description>get specified model information</description>
+		<display-name>get specified model information</display-name>
+		<servlet-name>GetModelInfo</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.GetModelInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ReferenceProcesses</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.action.ReferenceProcesses</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AReferenceProcesses</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.action.AReferenceProcesses</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AProcess</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.action.AProcess</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UploadImage</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.UploadImage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ToModelEditor</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.action.ToModelEditor</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BPMNSubscribe</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.BPMNSubscribe</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UploadModel</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.UploadModel</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteDomain</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.DeleteDomain</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteTitle</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.DeleteTitle</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateTitleDescription</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.UpdateTitleDescription</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>KeywordsSearch</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.KeywordsSearch</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddTag</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.AddTag</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetModelByTag</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.GetModelByTag</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetDomains</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.editor.GetDomains</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetTitles</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.editor.GetTitles</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetVersions</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.editor.GetVersions</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>NewDomain_Editor</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.editor.NewDomain</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>NewTitle_Editor</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.editor.NewTitle</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>NewVersion_Editor</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.editor.NewVersion</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModifyVersion_Editor</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.editor.ModifyVersion</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UploadModel_Editor</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.editor.UploadModel</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SignOut</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.SignOut</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SignIn</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.SignIn</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddAnnotation</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.AddAnnotation</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>cn.org.act.sdp.bpmnRepository.portal.servlet.Register</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewModel</servlet-name>
+		<url-pattern>/BPMN-PR/NewModel</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewDomain</servlet-name>
+		<url-pattern>/BPMN-PR/NewDomain</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewTitle</servlet-name>
+		<url-pattern>/BPMN-PR/NewTitle</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetModel</servlet-name>
+		<url-pattern>/BPMN-PR/GetModel</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetModelInfo</servlet-name>
+		<url-pattern>/BPMN-PR/GetModelInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReferenceProcesses</servlet-name>
+		<url-pattern>/BPMN-PR/ReferenceProcesses</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AReferenceProcesses</servlet-name>
+		<url-pattern>/BPMN-PR/AReferenceProcesses</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AProcess</servlet-name>
+		<url-pattern>/BPMN-PR/AProcess</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadImage</servlet-name>
+		<url-pattern>/BPMN-PR/UploadImage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ToModelEditor</servlet-name>
+		<url-pattern>/BPMN-PR/ToModelEditor</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BPMNSubscribe</servlet-name>
+		<url-pattern>/BPMN-PR/BPMNSubscribe</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadModel</servlet-name>
+		<url-pattern>/BPMN-PR/UploadModel</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteDomain</servlet-name>
+		<url-pattern>/BPMN-PR/DeleteDomain</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteTitle</servlet-name>
+		<url-pattern>/BPMN-PR/DeleteTitle</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateTitleDescription</servlet-name>
+		<url-pattern>/BPMN-PR/UpdateTitleDescription</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>KeywordsSearch</servlet-name>
+		<url-pattern>/BPMN-PR/KeywordsSearch</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddTag</servlet-name>
+		<url-pattern>/BPMN-PR/AddTag</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetModelByTag</servlet-name>
+		<url-pattern>/BPMN-PR/GetModelByTag</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetDomains</servlet-name>
+		<url-pattern>/BPMN-PR/GetDomains</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetTitles</servlet-name>
+		<url-pattern>/BPMN-PR/GetTitles</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetVersions</servlet-name>
+		<url-pattern>/BPMN-PR/GetVersions</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewDomain_Editor</servlet-name>
+		<url-pattern>/BPMN-PR/editor/NewDomain</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewTitle_Editor</servlet-name>
+		<url-pattern>/BPMN-PR/editor/NewTitle</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewVersion_Editor</servlet-name>
+		<url-pattern>/BPMN-PR/editor/NewVersion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModifyVersion_Editor</servlet-name>
+		<url-pattern>/BPMN-PR/editor/ModifyVersion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadModel_Editor</servlet-name>
+		<url-pattern>/BPMN-PR/editor/UploadModel</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SignOut</servlet-name>
+		<url-pattern>/BPMN-PR/SignOut</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SignIn</servlet-name>
+		<url-pattern>/BPMN-PR/SignIn</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddAnnotation</servlet-name>
+		<url-pattern>/BPMN-PR/AddAnnotation</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/BPMN-PR/Register</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UploadWsdl</servlet-name>
+		<servlet-class>servlet.UploadWsdl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UploadBpmn</servlet-name>
+		<servlet-class>servlet.UploadBpmnFile</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoadTester</servlet-name>
+		<servlet-class>servlet.LoadTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadWsdl</servlet-name>
+		<url-pattern>/ServiceCloud/wsdlupload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadBpmn</servlet-name>
+		<url-pattern>/ServiceCloud/bpmnupload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoadTester</servlet-name>
+		<url-pattern>/ServiceCloud/loadtest</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetCpuInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetCpuInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetDiskInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetDiskInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetMemoryInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetMemoryInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetThroughputInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetThroughputInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetResponseTimeInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetResponseTimeInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetNetInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetNetInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetInvokeResultInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetInvokeResultInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>Worker</servlet-name>
+		<servlet-class>monitor.servlet.Worker</servlet-class>
+		<load-on-startup>10</load-on-startup>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetUserCpuInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetUserCpuInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetUserThroughputInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetUserThroughputInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetUserResponseTimeInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetUserResponseTimeInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>GetUserInvokeResultInfo</servlet-name>
+		<servlet-class>monitor.servlet.GetUserInvokeResultInfo</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>GetCpuInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetCpuInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetDiskInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetDiskInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetMemoryInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetMemoryInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetThroughputInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetThroughputInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetResponseTimeInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetResponseTimeInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetNetInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetNetInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetInvokeResultInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetInvokeResultInfo</url-pattern>
+	</servlet-mapping>
+	<!--<servlet-mapping> <servlet-name>Worker</servlet-name> <url-pattern>/MonitorCenter/Worker</url-pattern> 
+		</servlet-mapping> -->
+	<servlet-mapping>
+		<servlet-name>GetUserCpuInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetUserCpuInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetUserThroughputInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetUserThroughputInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetUserResponseTimeInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetUserResponseTimeInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetUserInvokeResultInfo</servlet-name>
+		<url-pattern>/MonitorCenter/GetUserInvokeResultInfo</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>J2WS</servlet-name>
+		<servlet-class>servlet.J2WS</servlet-class>
+	</servlet>
+
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ApplyCassandraDataService</servlet-name>
+		<servlet-class>cn.sdp.Service4all.data.servlet.ApplyCassandraDataService</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>DownloadCassandraServiceClient</servlet-name>
+		<servlet-class>cn.sdp.Service4all.data.servlet.DownloadCassandraServiceClient</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ApplyHbaseDataService</servlet-name>
+		<servlet-class>cn.sdp.Service4all.data.servlet.ApplyHbaseDataService</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>DownloadHbaseServiceClient</servlet-name>
+		<servlet-class>cn.sdp.Service4all.data.servlet.DownloadHbaseServiceClient</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ApplyCassandraDataService</servlet-name>
+		<url-pattern>/ServiceCloud/ApplyCassandraDataService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DownloadCassandraServiceClient</servlet-name>
+		<url-pattern>/ServiceCloud/DownloadCassandraServiceClient</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ApplyHbaseDataService</servlet-name>
+		<url-pattern>/ServiceCloud/ApplyHbaseDataService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DownloadHbaseServiceClient</servlet-name>
+		<url-pattern>/ServiceCloud/DownloadHbaseServiceClient</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MysqlServlet</servlet-name>
+		<servlet-class>db.dao.service.MysqlServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MysqlServlet</servlet-name>
+		<url-pattern>/ServiceCloud/MysqlServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>J2WS</servlet-name>
+		<url-pattern>/ServiceCloud/j2ws</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+	
+	<struts>
+		<package name="default" extends="json-default">
+			<interceptors>
+				<interceptor name="authorityInterceptor" class="repository.interceptors.AuthorityInterceptor" />
+				<interceptor name="actionParamInterceptor" class="repository.interceptors.ActionParamInterceptor" />
+				<interceptor name="logInterceptor" class="repository.interceptors.LogInterceptor" />
+				<interceptor-stack name="MyStack">
+					<interceptor-ref name="defaultStack" />
+					<interceptor-ref name="authorityInterceptor" />
+					<interceptor-ref name="actionParamInterceptor" />
+					<interceptor-ref name="logInterceptor" />
+				</interceptor-stack>
+			</interceptors>
+			<default-interceptor-ref name="MyStack" />
+			<global-results>
+				<result name="allException">/error/exceptions.jsp</result>
+				<result name="login">/user/login.jsp</result>
+				<result name="error">/error/error.jsp</result>
+			</global-results>
+			<global-exception-mappings>
+				<exception-mapping result="allException" exception="java.lang.Exception" />
+			</global-exception-mappings>
+			<action name="*">
+				<result>/error/exceptions.jsp</result>
+			</action>
+	    </package>
+	    
+	    <package name="service" extends="default" namespace="/service">
+	    	<action name="GetAllServiceInfo" class="getAllServiceInfo">
+				<result name="success">/service/servicesAll.jsp</result>
+			</action>
+			<action name="ServiceOverView" class="serviceOverView">
+				<result name="success">/service/serviceOverView.jsp</result>
+			</action>
+			<action name="EditInformation" class="editInformation">
+				<result type="json"></result>
+			</action>
+			<action name="ServiceOperations" class="serviceOperations">
+				<result name="success">/service/serviceOperations.jsp</result>
+			</action>
+			<action name="ServiceGraph" class="serviceGraph">
+				<result name="success">/service/serviceGraph.jsp</result>
+			</action>
+			<action name="ServicesByTag" class="servicesByTag">
+				<result name="success">/service/servicesByTag.jsp</result>
+			</action>
+			<action name="ServicePreUpdate" class="servicePreUpdate">
+			    <result name="success">/service/serviceUpdate.jsp</result>
+			</action>
+			<action name="ServiceUpdate" class="serviceUpdate">
+			</action>
+			<action name="ServiceSubscription" class="serviceSubscription">
+				<result name="success">/service/subscriptionMsg.jsp</result>
+				<result name="error">/service/subscriptionMsg.jsp</result>
+			</action>
+			<action name="GetServiceInput" method="getServiceInput" class="serviceTryit">
+				<result name="success">/service/serviceTry.jsp</result>
+			</action>
+			
+			<action name="Test" class="test">
+			</action>
+			
+			<!--记得删 -->
+			<action name="GetQos" method="getServiceInput" class="serviceTryit">
+				<result name="success">/service/servicePreferenceQos.jsp</result>
+			</action>
+			<!-- END -->
+			
+			<action name="GetServiceOutput" method="getServiceOutput" class="serviceTryit">
+				<result type="json"></result>
+			</action>
+	    </package>
+	    
+	    <package name="comments" extends="default" namespace="/comments">
+	    	<action name="GetComments" class="getComments">
+	    		<result name="success">/service/serviceComments.jsp</result>
+	    	</action>
+	    	<action name="SaveComments" class="saveComments">
+	    	</action>
+	    	<action name="AppraiseCommentsUp" method="up" class="appraiseComments">
+	    		<result type="json"></result>
+	    	</action>
+	    	<action name="AppraiseCommentsDown" method="down" class="appraiseComments">
+	    		<result type="json"></result>
+	    	</action>
+	    	<action name="Recommendation" method="getRecServices" class="recommendation">
+	    		<result name="success">/credit/recommendation2.jsp</result>
+	    	</action>
+	    </package>
+	    
+	    
+	    <package name="news" extends="default" namespace="/news">
+			<action name="GetNews" class="getNews">
+				<result type="json"></result>
+			</action>
+			<action name="GetAllNews" class="getAllNews">
+				<result name="success">/news/newsAll.jsp</result>
+			</action>
+			<action name="NewsDetails" class="newsDetails">
+				<result name="success">/news/newsDetails.jsp</result>
+			</action>
+		</package>
+		
+		<package name="cluster" extends="default" namespace="/cluster">
+			<action name="ServicesByCluster" class="servicesByCluster">
+				<result name="success">/service/servicesByCluster.jsp</result>
+			</action>
+			<action name="CategoryTree" class="categoryTree">
+				<result type="json"></result>
+			</action>
+		</package>
+		
+		<package name="tags" extends="default" namespace="/tags">
+			<action name="HotTags" class="hotTags">
+				<result type="json"></result>
+			</action>
+			<action name="AddTag" class="addTag">
+				<result type="json"></result>
+			</action>
+			<action name="ServiceTags" class="serviceTags">
+				<result type="json"></result>
+			</action>
+		</package>
+		
+		<package name="user" extends="default" namespace="/user">
+			<action name="SaveUser" method="saveUser" class="user">
+				<result name="success">/index.jsp</result>
+				<result name="failed">/testuser/createAccout.jsp</result>
+			</action>
+			<action name="IsUserNameExist" method="isUserNameExist" class="user">
+				<result type="json"></result>
+			</action>
+			<action name="LoginUser" method="loginUser" class="user">
+				<result name="success">/index.jsp</result>
+				<result name="login">/testuser/login.jsp</result>	
+			</action>
+			<action name="LogoutUser" method="logoutUser" class="user">
+				<result name="success">/index.jsp</result>	
+			</action>
+			<action name="GetUserInfo" method="getLoginUser" class="user">
+				<result name="success">/user/userInfo.jsp</result>
+			</action>
+		</package>
+	
+		<package name="search" extends="default" namespace="/search">
+			<action name="SearchBeans" class="searchBeans">
+				<result name="keyword">/search/searchKeyword.jsp</result>
+				<result name="xpath">/search/searchXPath.jsp</result>
+				<result name="recommendation">/credit/recommendation1.jsp</result>
+			</action>
+		</package>
+		<package name="register" extends="default" namespace="/register">
+			<action name="RegisterService" class="registerService">
+				<result name="input">/register/registry.jsp</result>
+				<result name="success">/register/registryMsg.jsp</result>
+			</action>
+			<action name="RegisterServicePre" class="registerServicePre">
+				<result name="success">/register/registry.jsp</result>
+			</action>
+		</package>
+		<package name="log" extends="default" namespace="/log">
+			<action name="GetServiceLog" method="getServiceLog" class="serviceLog">
+				<result name="success">/user/serviceLog.jsp</result>
+			</action>
+			<action name="GetQueryLog" method="getQueryLog" class="queryLog">
+				<result name="success">/user/queryLog.jsp</result>
+			</action>
+			<action name="GetServiceSubscriptionLog" method="getServiceSubscriptionLog" class="serviceSubscriptionLog">
+				<result name="success">/user/serviceSubscriptionLog.jsp</result>
+			</action>
+		</package>
+	</struts>

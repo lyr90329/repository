@@ -1,0 +1,26 @@
+<bpmn:BusinessProcessDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://sdp.act.org.cn/bpmn">
+  <pools id="1" mainPool="true" name="pool">
+    <lanes id="2" name="lane">
+      <graphicalElements id="4" xsi:type="bpmn:EndEvent" name="end"/>
+      <graphicalElements id="3" xsi:type="bpmn:StartEvent" triggers="" name="start"/>
+      <graphicalElements id="5" xsi:type="bpmn:ServiceTask" webService="20" name="login" inMessageRef="3370" outMessageRef="3373"/>
+      <graphicalElements id="6" xsi:type="bpmn:ServiceTask" webService="3366" name="queryViolate" inMessageRef="3374" outMessageRef="3375"/>
+    </lanes>
+    <sequenceFlows id="7" sourceRef="3" targetRef="5" name="" conditionExpression=""/>
+    <sequenceFlows id="9" sourceRef="6" targetRef="4" name="" conditionExpression=""/>
+    <sequenceFlows id="8" sourceRef="5" targetRef="6" name="" conditionExpression=""/>
+  </pools>
+  <invisibleElement>
+    <supportingElements xsi:type="bpmn:WebService" id="20" name="jtcx" operation="login" url="http://115.28.42.76:5000/axis2/services/jtcx.jtcxHttpSoap12Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:WebService" id="3366" name="jtcx" operation="queryViolate" url="http://115.28.42.76:5000/axis2/services/jtcx.jtcxHttpSoap12Endpoint/" targetNamespace="http://service.jtcx.wonders.com"/>
+    <supportingElements xsi:type="bpmn:Property" id="3367" name="userName" type="String"/>
+    <supportingElements xsi:type="bpmn:InputSet" id="3368" name="" propertyInputs="3367 3369 "/>
+    <supportingElements xsi:type="bpmn:Property" id="3369" name="password" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="3370" name="loginInMsg" properties="3367 3369 "/>
+    <supportingElements xsi:type="bpmn:Property" id="3371" name="loginResult" type="String"/>
+    <supportingElements xsi:type="bpmn:OutputSet" id="3372" name="" propertyOutputs="3371 "/>
+    <supportingElements xsi:type="bpmn:Message" id="3373" name="loginOutMsg" properties="3371 "/>
+    <supportingElements xsi:type="bpmn:Message" id="3374" name="queryViolateInMsg" properties="3367 "/>
+    <supportingElements xsi:type="bpmn:Message" id="3375" name="queryViolateOutMsg"/>
+  </invisibleElement>
+</bpmn:BusinessProcessDiagram>

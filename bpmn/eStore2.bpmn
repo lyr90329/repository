@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BusinessProcessDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://sdp.act.org.cn/bpmn">
+  <pools id="10020" name="customer" mainPool="true">
+    <lanes id="10021" name="lane">
+      <graphicalElements xsi:type="bpmn:StartEvent" id="10038" name="11"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10039" name="11" outMessageRef="10101" inMessageRef="10100" webService="10099"/>
+      <graphicalElements xsi:type="bpmn:SendTask" id="10040" name="11" messageRef="10103"/>
+      <graphicalElements xsi:type="bpmn:ReceiveTask" id="10041" name="11" messageRefs="10108"/>
+      <graphicalElements xsi:type="bpmn:DataBasedExclusiveGateway" id="10042"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10043" name="11" outMessageRef="10111" inMessageRef="10110" webService="10109"/>
+      <graphicalElements xsi:type="bpmn:SendTask" id="10044" name="11" messageRef="10113"/>
+      <graphicalElements xsi:type="bpmn:ReceiveTask" id="10045" name="11" messageRefs="10118"/>
+      <graphicalElements xsi:type="bpmn:DataBasedExclusiveGateway" id="10046" gates="10094 10095"/>
+      <graphicalElements xsi:type="bpmn:ReceiveTask" id="10047" name="11" messageRefs="10125"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10048" name="11" outMessageRef="10128" inMessageRef="10127" webService="10126"/>
+      <graphicalElements xsi:type="bpmn:SendTask" id="10049" name="11" messageRef="10129"/>
+      <graphicalElements xsi:type="bpmn:EndEvent" id="10050" name="11"/>
+    </lanes>
+    <sequenceFlows id="10063" sourceRef="10038" targetRef="10039"/>
+    <sequenceFlows id="10064" sourceRef="10039" targetRef="10040"/>
+    <sequenceFlows id="10065" sourceRef="10040" targetRef="10041"/>
+    <sequenceFlows id="10066" sourceRef="10041" targetRef="10042"/>
+    <sequenceFlows id="10067" sourceRef="10042" targetRef="10043"/>
+    <sequenceFlows id="10068" sourceRef="10043" targetRef="10044"/>
+    <sequenceFlows id="10069" sourceRef="10044" targetRef="10045"/>
+    <sequenceFlows id="10070" sourceRef="10045" targetRef="10046"/>
+    <sequenceFlows id="10071" name="flow1" sourceRef="10046" targetRef="10047" conditionExpression="10119"/>
+    <sequenceFlows id="10072" name="flow2" sourceRef="10046" targetRef="10042" conditionExpression="10120"/>
+    <sequenceFlows id="10073" sourceRef="10047" targetRef="10048"/>
+    <sequenceFlows id="10074" sourceRef="10048" targetRef="10049"/>
+    <sequenceFlows id="10075" sourceRef="10049" targetRef="10050"/>
+  </pools>
+  <pools id="10029" name="eStore">
+    <lanes id="10030" name="lane">
+      <graphicalElements xsi:type="bpmn:StartEvent" id="10051" name="11" triggers="10098"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10052" name="11" outMessageRef="10106" inMessageRef="10105" webService="10104"/>
+      <graphicalElements xsi:type="bpmn:SendTask" id="10053" name="11" messageRef="10108"/>
+      <graphicalElements xsi:type="bpmn:DataBasedExclusiveGateway" id="10054"/>
+      <graphicalElements xsi:type="bpmn:ReceiveTask" id="10055" name="11" messageRefs="10113"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10056" name="11" outMessageRef="10116" inMessageRef="10115" webService="10114"/>
+      <graphicalElements xsi:type="bpmn:SendTask" id="10057" name="11" messageRef="10118"/>
+      <graphicalElements xsi:type="bpmn:DataBasedExclusiveGateway" id="10058" gates="10096 10097"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10059" name="11" outMessageRef="10123" inMessageRef="10122" webService="10121"/>
+      <graphicalElements xsi:type="bpmn:SendTask" id="10060" name="11" messageRef="10125"/>
+      <graphicalElements xsi:type="bpmn:ReceiveTask" id="10061" name="11" messageRefs="10129"/>
+      <graphicalElements xsi:type="bpmn:EndEvent" id="10062" name="11"/>
+    </lanes>
+    <sequenceFlows id="10076" sourceRef="10051" targetRef="10052"/>
+    <sequenceFlows id="10077" sourceRef="10052" targetRef="10053"/>
+    <sequenceFlows id="10078" sourceRef="10053" targetRef="10054"/>
+    <sequenceFlows id="10079" sourceRef="10054" targetRef="10055"/>
+    <sequenceFlows id="10080" sourceRef="10055" targetRef="10056"/>
+    <sequenceFlows id="10081" sourceRef="10056" targetRef="10057"/>
+    <sequenceFlows id="10082" sourceRef="10057" targetRef="10058"/>
+    <sequenceFlows id="10083" name="flow3" sourceRef="10058" targetRef="10059" conditionExpression="10119"/>
+    <sequenceFlows id="10084" sourceRef="10059" targetRef="10060"/>
+    <sequenceFlows id="10085" sourceRef="10060" targetRef="10061"/>
+    <sequenceFlows id="10086" sourceRef="10061" targetRef="10062"/>
+    <sequenceFlows id="10087" name="flow4" sourceRef="10058" targetRef="10054" conditionExpression="10120"/>
+  </pools>
+  <messageFlows id="10088" sourceRef="10040" targetRef="10051"/>
+  <messageFlows id="10089" sourceRef="10053" targetRef="10041"/>
+  <messageFlows id="10090" sourceRef="10044" targetRef="10055"/>
+  <messageFlows id="10091" sourceRef="10057" targetRef="10045"/>
+  <messageFlows id="10092" sourceRef="10060" targetRef="10047"/>
+  <messageFlows id="10093" sourceRef="10049" targetRef="10061"/>
+  <invisibleElement>
+    <supportingElements xsi:type="bpmn:InputSet" id="10031" name="input" propertyInputs="10035 10036 10034 10033"/>
+    <supportingElements xsi:type="bpmn:OutputSet" id="10032" name="output" propertyOutputs="10037"/>
+    <supportingElements xsi:type="bpmn:Property" id="10033" name="userName" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="10034" name="password" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="10035" name="goodName" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="10036" name="orderId" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="10037" name="result" type="String"/>
+    <supportingElements xsi:type="bpmn:Gate" id="10094" name="gate1" outgoingSequenceFlow="10071"/>
+    <supportingElements xsi:type="bpmn:Gate" id="10095" name="gate2" outgoingSequenceFlow="10072"/>
+    <supportingElements xsi:type="bpmn:Gate" id="10096" name="gate3" outgoingSequenceFlow="10083"/>
+    <supportingElements xsi:type="bpmn:Gate" id="10097" name="gate4" outgoingSequenceFlow="10087"/>
+    <supportingElements xsi:type="bpmn:MessageEventDetail" id="10098" name="megStart" messageRef="10103"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10099" name="LoginService" operation="login" url="http://192.168.3.133:8070/axis2/services/LoginService" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10100" name="loginInMeg" properties="10033 10034 10036"/>
+    <supportingElements xsi:type="bpmn:Message" id="10101" name="loginOutMeg" properties="10102"/>
+    <supportingElements xsi:type="bpmn:Property" id="10102" name="loginResult" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="10103" name="requestMeg" properties="10035 10036"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10104" name="FindBookService" operation="findBook" url="http://192.168.3.133:8070/axis2/services/FindBookService" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10105" name="findBookInMeg" properties="10035 10036"/>
+    <supportingElements xsi:type="bpmn:Message" id="10106" name="findBookOutMeg" properties="10107"/>
+    <supportingElements xsi:type="bpmn:Property" id="10107" name="findResultStatus" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="10108" name="returnPriceMeg" properties="10107"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10109" name="CreateOrderService" operation="createOrder" url="http://192.168.3.133:8070/axis2/services/CreateOrderServiceTemp" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10110" name="createOrderInMeg" properties="10036"/>
+    <supportingElements xsi:type="bpmn:Message" id="10111" name="createOrderOutMeg" properties="10112"/>
+    <supportingElements xsi:type="bpmn:Property" id="10112" name="bankInfo" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="10113" name="orderMeg" properties="10112"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10114" name="PayService" operation="pay" url="http://192.168.3.133:8070/axis2/services/PayService" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10115" name="payInMeg" properties="10112 10107 10036"/>
+    <supportingElements xsi:type="bpmn:Message" id="10116" name="payOutMeg" properties="10117"/>
+    <supportingElements xsi:type="bpmn:Property" id="10117" name="payResult" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="10118" name="payResultMeg" properties="10117"/>
+    <supportingElements xsi:type="bpmn:Expression" id="10119" name="trueExp" expressionBody="payResult==&quot;true&quot;"/>
+    <supportingElements xsi:type="bpmn:Expression" id="10120" name="falseExp" expressionBody="payResult==&quot;false&quot;"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10121" name="DeliverService" operation="deliver" url="http://192.168.3.133:8070/axis2/services/DeliverService" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10122" name="deliverInMeg" properties="10036"/>
+    <supportingElements xsi:type="bpmn:Message" id="10123" name="deliverOutMeg" properties="10124"/>
+    <supportingElements xsi:type="bpmn:Property" id="10124" name="deliverResult" type="String"/>
+    <supportingElements xsi:type="bpmn:Message" id="10125" name="deliverResultMeg" properties="10124"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10126" name="ConfirmService" operation="confirm" url="http://192.168.3.133:8070/axis2/services/ConfirmServiceTemp" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10127" name="confirmInMeg" properties="10036"/>
+    <supportingElements xsi:type="bpmn:Message" id="10128" name="confirmOutMeg" properties="10037"/>
+    <supportingElements xsi:type="bpmn:Message" id="10129" name="confirmResultMeg" properties="10037"/>
+  </invisibleElement>
+</bpmn:BusinessProcessDiagram>

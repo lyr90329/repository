@@ -1,0 +1,42 @@
+.accountMenu{
+	float:left;
+	text-align:left;
+	width:200px;
+	height:400px;
+	margin-left:30px;
+	padding-left:50px;
+	border-width:0px 1px 0px 0px;
+	border-color:#ccc;
+	border-style:solid;
+}
+
+.accountInfo{
+	text-align:left;
+	width:600px;
+	margin-left:370px;
+	background-color:#fff;
+}
+
+.inner_title{
+	color:#999;
+	margin:20px 0px 10px 30px;
+	padding-bottom:5px;
+	border:0px;
+	border-bottom:1px;
+	border-style:solid;
+	border-color:#ccc;
+}
+
+.accountInfo .key{
+	color:#aaa;
+	margin:3px 0px 3px 0px;
+}
+
+.accountInfo .value{
+	color:blue;
+	margin:3px 0px 3px 50px;
+}
+
+.accountInfo .log{
+	margin:5px 0px 5px 50px;
+}

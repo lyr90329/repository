@@ -1,0 +1,27 @@
+body{
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	color: #333;
+	line-height: 1.3em;
+	margin: 0px 0px 0px 0px;
+	background:#fff;
+	text-align:center;
+}
+td{
+	font-size: 12px;
+}
+a{
+	text-decoration:none;
+}
+
+A:hover {
+ color: #ff7f24;
+ text-decoration: underline;
+}
+
+.logo{
+	width:1000px;
+	height:156px;
+	background: url(../img/logo.gif) no-repeat;
+	margin:0 auto;
+}

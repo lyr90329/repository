@@ -1,0 +1,25 @@
+.left_one .side_logo{
+	background: url(../img/ellipse_yellow.gif) no-repeat;
+}
+
+.left_one .side_content{
+	border-color:#dce1a3;
+}
+
+.left_two .side_logo{
+	color:#ccc;
+}
+
+.right_two .side_logo{
+	background: url(../img/ellipse_blue.gif) no-repeat;
+}
+.right_two .side_content{
+	border-color:#0572b7;
+}
+
+.right_one .side_logo{
+	background: url(../img/ellipse_orange.gif) no-repeat;
+}
+.right_one .side_content{
+	border-color:#f06f07;
+}

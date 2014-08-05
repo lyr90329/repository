@@ -1,0 +1,171 @@
+/*
+
+	-- -- -- -- -- -- --
+	css sprites2
+	nav style, with style for scripted elements
+
+	http://www.alistapart.com/articles/sprites2
+	-- -- -- -- -- -- --
+	
+*/
+
+#menu {
+	width: 1001px;
+	height: 48px;
+	margin:0 auto;
+}
+#menu ul{
+	margin:0;
+	padding:0;
+}
+.nav {
+	width: 1001px;
+	height: 48px;
+	background: url(../img/menu.gif) no-repeat;
+	position: relative;
+	margin:0 auto;
+}
+.nav li {
+	display: inline;
+}
+.nav li a:link, .nav li a:visited {
+	position: absolute;
+	top: 0;
+	height: 48px;
+	text-indent: -9000px;
+	overflow: hidden;
+	z-index: 10;
+}
+
+	.nav .services a:link, .nav .services a:visited {
+		left: 221px;
+		width: 109px;
+	}
+	.nav .services a:hover, .nav .services a:focus {
+		background: url(../img/menu.gif) no-repeat -221px -49px;
+	}
+	.nav .services a:active {
+		background: url(../img/menu.gif) no-repeat -221px -98px;
+	}
+	.current-services .services a:link, .current-services .services a:visited {
+		background: url(../img/menu.gif) no-repeat -221px -147px;
+		cursor: default;
+	}
+	.nav-services, .nav-services-click {
+		position: absolute;
+		top: 0;
+		left: 221px;
+		width: 109px;
+		height: 48px;
+		background: url(../img/menu.gif) no-repeat -221px -49px;
+	}
+	.nav-services-click {
+		background: url(../img/menu.gif) no-repeat -221px -98px;
+	}
+	.nav .news a:link, .nav .news a:visited {
+		left: 331px;
+		width: 99px;
+	}
+	.nav .news a:hover, .nav .news a:focus {
+		background: url(../img/menu.gif) no-repeat -331px -49px;
+	}
+	.nav .news a:active {
+		background: url(../img/menu.gif) no-repeat -331px -98px;
+	}
+	.current-news .news a:link, .current-news .news a:visited {
+		background: url(../img/menu.gif) no-repeat -331px -147px;
+		cursor: default;
+	}
+	.nav-news, .nav-news-click {
+		position: absolute;
+		top: 0;
+		left: 331px;
+		width: 99px;
+		height: 48px;
+		background: url(../img/menu.gif) no-repeat -331px -49px;
+	}
+	.nav-news-click {
+		background: url(../img/menu.gif) no-repeat -331px -98px;
+	}
+
+
+	.nav .register a:link, .nav .register a:visited {
+		left: 431px;
+		width: 119px;
+	}
+	.nav .register a:hover, .nav .register a:focus {
+		background: url(../img/menu.gif) no-repeat -431px -49px;
+	}
+	.nav .register a:active {
+		background: url(../img/menu.gif) no-repeat -431px -98px;
+	}
+	.current-register .register a:link, .current-register .register a:visited {
+		background: url(../img/menu.gif) no-repeat -431px -147px;
+		cursor: default;
+	}
+	.nav-register, .nav-register-click {
+		position: absolute;
+		top: 0;
+		left: 431px;
+		width: 119px;
+		height: 48px;
+		background: url(../img/menu.gif) no-repeat -431px -49px;
+	}
+	.nav-register-click {
+		background: url(../img/menu.gif) no-repeat -431px -98px;
+	}
+
+
+	.nav .about a:link, .nav .about a:visited {
+		left: 551px;
+		width: 119px;
+	}
+	.nav .about a:hover, .nav .about a:focus {
+		background: url(../img/menu.gif) no-repeat -551px -49px;
+	}
+	.nav .about a:active {
+		background: url(../img/menu.gif) no-repeat -551px -98px;
+	}
+	.current-about .about a:link, .current-about .about a:visited {
+		background: url(../img/menu.gif) no-repeat -551px -147px;
+		cursor: default;
+	}
+	.nav-about, .nav-about-click {
+		position: absolute;
+		top: 0;
+		left: 551px;
+		width: 119px;
+		height: 48px;
+		background: url(../img/menu.gif) no-repeat -551px -49px;
+	}
+	.nav-about-click {
+		background: url(../img/menu.gif) no-repeat -551px -98px;
+	}
+
+
+	.nav .bpmn a:link, .nav .bpmn a:visited {
+		left: 671px;
+		width: 109px;
+	}
+	.nav .bpmn a:hover, .nav .bpmn a:focus {
+		background: url(../img/menu.gif) no-repeat -671px -49px;
+	}
+	.nav .bpmn a:active {
+		background: url(../img/menu.gif) no-repeat -671px -98px;
+	}
+	.current-bpmn .bpmn a:link, .current-bpmn .bpmn a:visited {
+		background: url(../img/menu.gif) no-repeat -671px -147px;
+		cursor: default;
+	}
+	.nav-bpmn, .nav-bpmn-click {
+		position: absolute;
+		top: 0;
+		left: 671px;
+		width: 109px;
+		height: 48px;
+		background: url(../img/menu.gif) no-repeat -671px -49px;
+	}
+	.nav-bpmn-click {
+		background: url(../img/menu.gif) no-repeat -671px -98px;
+	}
+

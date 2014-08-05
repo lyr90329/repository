@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BusinessProcessDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://sdp.act.org.cn/bpmn">
+  <pools id="10049" name="bookstore">
+    <lanes id="10050" name="lane">
+      <graphicalElements xsi:type="bpmn:StartEvent" id="10067" name="开始" triggers="10108"/>
+      <graphicalElements xsi:type="bpmn:DataBasedExclusiveGateway" id="10068" gates="10094 10095"/>
+      <graphicalElements xsi:type="bpmn:NoneTask" id="10069" name="拒绝服务" assignments="10124"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10070" name="查找图书" outMessageRef="10113" inMessageRef="10112" webService="10111"/>
+      <graphicalElements xsi:type="bpmn:DataBasedExclusiveGateway" id="10071" gates="10096 10097"/>
+      <graphicalElements xsi:type="bpmn:NoneTask" id="10072" name="查找失败" assignments="10122"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10073" name="折扣处理" outMessageRef="10120" inMessageRef="10119" webService="10118"/>
+      <graphicalElements xsi:type="bpmn:DataBasedExclusiveGateway" id="10074"/>
+      <graphicalElements xsi:type="bpmn:DataBasedExclusiveGateway" id="10075"/>
+      <graphicalElements xsi:type="bpmn:SendTask" id="10076" name="返回结果" messageRef="10121"/>
+      <graphicalElements xsi:type="bpmn:EndEvent" id="10077" name="结束"/>
+    </lanes>
+    <sequenceFlows id="10078" sourceRef="10067" targetRef="10068"/>
+    <sequenceFlows id="10079" name="flow1" sourceRef="10068" targetRef="10070" conditionExpression="10109"/>
+    <sequenceFlows id="10080" name="flow2" sourceRef="10068" targetRef="10069" conditionExpression="10110"/>
+    <sequenceFlows id="10081" sourceRef="10070" targetRef="10071"/>
+    <sequenceFlows id="10082" name="flow3" sourceRef="10071" targetRef="10073" conditionExpression="10115"/>
+    <sequenceFlows id="10083" name="flow4" sourceRef="10071" targetRef="10072" conditionExpression="10116"/>
+    <sequenceFlows id="10084" sourceRef="10073" targetRef="10074"/>
+    <sequenceFlows id="10085" sourceRef="10072" targetRef="10074"/>
+    <sequenceFlows id="10086" sourceRef="10074" targetRef="10075"/>
+    <sequenceFlows id="10087" sourceRef="10069" targetRef="10075"/>
+    <sequenceFlows id="10088" sourceRef="10075" targetRef="10076"/>
+    <sequenceFlows id="10089" sourceRef="10076" targetRef="10077"/>
+  </pools>  
+  <pools id="10047" name="client" mainPool="true">
+    <lanes id="10048" name="lane">
+      <graphicalElements xsi:type="bpmn:StartEvent" id="10051" name="开始"/>
+      <graphicalElements xsi:type="bpmn:ServiceTask" id="10052" name="登录" outMessageRef="10106" inMessageRef="10105" webService="10104"/>
+      <graphicalElements xsi:type="bpmn:SendTask" id="10060" name="传送信息" messageRef="10107"/>
+      <graphicalElements xsi:type="bpmn:ReceiveTask" id="10061" name="接收结果" messageRefs="10121"/>
+      <graphicalElements xsi:type="bpmn:EndEvent" id="10062" name="结束"/>
+    </lanes>
+    <sequenceFlows id="10063" sourceRef="10051" targetRef="10052"/>
+    <sequenceFlows id="10064" sourceRef="10052" targetRef="10060"/>
+    <sequenceFlows id="10065" sourceRef="10060" targetRef="10061"/>
+    <sequenceFlows id="10066" sourceRef="10061" targetRef="10062"/>
+  </pools> 
+  <messageFlows id="10090" sourceRef="10060" targetRef="10067"/>
+  <messageFlows id="10091" sourceRef="10076" targetRef="10061"/>
+  <invisibleElement>
+    <supportingElements xsi:type="bpmn:InputSet" id="10092" name="inputSet" propertyInputs="10100 10099 10098 10101"/>
+    <supportingElements xsi:type="bpmn:OutputSet" id="10093" name="outputSet" propertyOutputs="10117"/>
+    <supportingElements xsi:type="bpmn:Gate" id="10094" name="gate1" outgoingSequenceFlow="10079"/>
+    <supportingElements xsi:type="bpmn:Gate" id="10095" name="gate2" outgoingSequenceFlow="10080"/>
+    <supportingElements xsi:type="bpmn:Gate" id="10096" name="gate3" outgoingSequenceFlow="10082"/>
+    <supportingElements xsi:type="bpmn:Gate" id="10097" name="gate4" outgoingSequenceFlow="10083"/>
+    <supportingElements xsi:type="bpmn:Property" id="10098" name="username" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="10099" name="password" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="10100" name="bookName" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="10101" name="VIP" type="String"/>
+    <supportingElements xsi:type="bpmn:Property" id="10102" name="loginResult" type="String"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10104" name="LoginService" operation="login" url="http://192.168.3.164:8070/axis2/services/LoginService" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10105" name="loginInputMessage" properties="10098 10099"/>
+    <supportingElements xsi:type="bpmn:Message" id="10106" name="loginOutputMessage" properties="10102"/>
+    <supportingElements xsi:type="bpmn:Message" id="10107" name="loginSendMessage" properties="10102 10100 10101"/>
+    <supportingElements xsi:type="bpmn:MessageEventDetail" id="10108" name="messageEvent" messageRef="10107"/>
+    <supportingElements xsi:type="bpmn:Expression" id="10109" name="loginExpression1" expressionBody="loginResult==&quot;Successful&quot;"/>
+    <supportingElements xsi:type="bpmn:Expression" id="10110" name="loginExpression2" expressionBody="loginResult==&quot;Failed&quot;"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10111" name="FindBookService" operation="findBook" url="http://192.168.3.164:8070/axis2/services/FindBookService" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10112" name="findBookInputMessage" properties="10100"/>
+    <supportingElements xsi:type="bpmn:Message" id="10113" name="findBookOutputMessage" properties="10114"/>
+    <supportingElements xsi:type="bpmn:Property" id="10114" name="priceBeforeDiscount" type="float"/>
+    <supportingElements xsi:type="bpmn:Expression" id="10115" name="findBookExpression1" expressionBody="priceBeforeDiscount>=0"/>
+    <supportingElements xsi:type="bpmn:Expression" id="10116" name="findBookExpression2" expressionBody="priceBeforeDiscount&lt;0"/>
+    <supportingElements xsi:type="bpmn:Property" id="10117" name="result" type="String"/>
+    <supportingElements xsi:type="bpmn:WebService" id="10118" name="DiscountService" operation="discount" url="http://192.168.3.164:8070/axis2/services/DiscountService" targetNamespace="http://services.test.sdp.act.org.cn"/>
+    <supportingElements xsi:type="bpmn:Message" id="10119" name="discountInputMessage" properties="10114 10101"/>
+    <supportingElements xsi:type="bpmn:Message" id="10120" name="discountOutputMessage" properties="10117"/>
+    <supportingElements xsi:type="bpmn:Message" id="10121" name="sendResult" properties="10117"/>
+    <supportingElements xsi:type="bpmn:Assignment" id="10122" name="findFailedAssignment" to="10117" from="10123"/>
+    <supportingElements xsi:type="bpmn:Expression" id="10123" name="findFailed" expressionBody="&quot;Failed to find the book&quot;"/>
+    <supportingElements xsi:type="bpmn:Assignment" id="10124" name="loginFailedAssignment" to="10117" from="10125"/>
+    <supportingElements xsi:type="bpmn:Expression" id="10125" name="loginFailed" expressionBody="&quot;Username or password is wrong, query is refused&quot;"/>
+  </invisibleElement>
+</bpmn:BusinessProcessDiagram>

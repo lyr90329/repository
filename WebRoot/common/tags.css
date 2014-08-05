@@ -1,0 +1,19 @@
+.tag_cloud{
+	line-height:25px;
+	margin-left:10px;
+	margin-right:10px;
+}
+.tag_cloud .globaltagweight0 { font-size: 0.8em; }
+.tag_cloud .globaltagweight1 { font-size: 0.95em; }
+.tag_cloud .globaltagweight2 { font-size: 1.1em; }
+.tag_cloud .globaltagweight3 { font-size: 1.22em; }
+.tag_cloud .globaltagweight4 { font-size: 1.34em; }
+.tag_cloud .globaltagweight5 { font-size: 1.46em; }
+.tag_cloud .globaltagweight6 { font-size: 1.58em; }
+.tag_cloud .globaltagweight7 { font-size: 1.70em; }
+.tag_cloud .globaltagweight8 { font-size: 1.82em; }
+.tag_cloud .globaltagweight9 { font-size: 1.94em; }
+
+.right_two .side_content{
+	text-align:center;
+}

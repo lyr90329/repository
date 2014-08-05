@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invokeRequest>
+<portType>TestServiceForServiceMixPortType</portType>
+<operation>getHello</operation>
+<requestSoap>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Header/>
+   <soap:Body userID="Jack" userType="owner">
+      <ser:getHello xmlns:ser="http://service.sample">
+         <!--Optional:-->
+         <ser:name>linjj  wsdl 1219</ser:name>
+      </ser:getHello>
+   </soap:Body>
+</soap:Envelope>
+</requestSoap>
+</invokeRequest>
