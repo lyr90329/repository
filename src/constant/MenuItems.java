@@ -9,7 +9,7 @@ public class MenuItems {
 			, "MashRoom"  // 5
 			, "MyLoadTester" //6
 			, "J2WS Online" //7
-			, "Simulation" //8
+			, "WS Sim" //8
 			, "SubscribedServices" // 9
 			, "SubscribedBPMN" // 10
 			, "HBase" // 11
